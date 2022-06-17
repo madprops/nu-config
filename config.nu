@@ -425,16 +425,24 @@ alias d = dolphin .
 alias getaudio = yt-dlp --extract-audio --audio-format mp3 --audio-quality 3
 alias dirsize = du -sh
 
+def argz [...arg] {
+  ($arg | str collect (char space))
+}
+
 def h [...arg] {
-  history | find ($arg | str collect (char space))
+  history | find (argz $arg)
 }
 
 def p [...arg] {
-  ps | find ($arg | str collect (char space))
+  ps | find (argz $arg)
 }
 
-def search [...arg] {
+def f [arg] {
+  ls **/*($arg)*
+}
+
+def s [...arg] {
   echo "----------------------------"
-  ag --ignore "*bundle*" --width 200 ($arg | str collect (char space))
+  ag --ignore "*bundle*" --width 200 (argz $arg)
   echo "----------------------------"
 }
