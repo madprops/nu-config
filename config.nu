@@ -406,9 +406,6 @@ let-env config = {
 
 ####### MY CUSTOMIZATIONS
 
-let-env EZKL_PATH = "/home/yo/code/ezkl"
-use /home/yo/code/ezkl/ezkl.nu *
-
 alias get = sudo pacman -S
 alias update = sudo pacman -Syy
 alias upgrade = yay && flatpak update
